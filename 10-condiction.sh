@@ -3,10 +3,10 @@
 NuMBER1=$1
 
 NuMBE
-if [ $NuMBER -gt 20 ] 
+if [ $NuMBER1 -gt 20 ] 
 than
-    echo "given NuMBER:$NuMBER is greater than 20"
+    echo "given NuMBER:$NuMBER1 is greater than 20"
 else
-    echo "given NuMBER:: $NuMBER is lessthan 20"
+    echo "given NuMBER:: $NuMBER1 is lessthan 20"
 fi
  
