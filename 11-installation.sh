@@ -2,4 +2,4 @@
 
 uSERID=$(id -u)
 echo " user id is: $uSERID"
-dnf install git -y
+  #dnf install git -y
