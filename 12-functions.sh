@@ -3,12 +3,12 @@
 uSERID=$(id -u)
 
 VALIDATE(){
-    if [ $? -ne 0 ]
+    if [ $1 -ne 0 ]
     then
-        echo "command is ...... FAILED"
+        echo "$2 is ...... FAILED"
         exit 1
     else
-        echo "command is ..... SCESSS"
+        echo "$2 is ..... SCESSS"
     fi
 }
 if [ $uSERID -ne 0 ]
@@ -18,7 +18,7 @@ then
 else
     echo "I have root access.... i will procide with that....."
 fi
-VALIDATE $?
+VALIDATE $? "Listing git"
 
 # dnf list installed git
 
