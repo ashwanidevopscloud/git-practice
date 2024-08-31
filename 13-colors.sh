@@ -1,9 +1,9 @@
 #!/bin/bash
 
 uSERID=$(id -u)
-R="/e[31m"
-G="/e[32m"
-N="/e[0m"
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 CHECK_ROOT(){
     if [ $uSERID -ne 0 ]
     then
