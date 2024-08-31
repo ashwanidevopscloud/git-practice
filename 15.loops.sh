@@ -23,14 +23,18 @@ CHECK_ROOT(){
 }
 
 CHECK_ROOT
-dnf list installed git
 
-if [ $? -ne 0 ]
-then
-    echo "git is not installed.... going to install it......"
-    dnf install git -y
-    VALIDATE $? "installing git......"
+for package in $@
+do
+  dnf list installed git
+
+  if [ $? -ne 0 ]
+  then
+       echo "$package is not installed.... going to install it......"
+       dnf install $package -y
+       VALIDATE $? "$package installing......"
     
-else
-    echo "git is aleady installed nothing to do"
-fi
+   else
+       echo "$package is aleady installed nothing to do"
+   fi
+done
