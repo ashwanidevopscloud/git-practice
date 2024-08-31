@@ -1,15 +1,18 @@
 #!/bin/bash
 
 uSERID=$(id -u)
+echo "userID is ::$uSERID"
 
-
-echo "userid is :: $uSERID"
-
-if [ $uSERID -ne 0 ]
+if[ $uSERID -ne 0]
 then
-    echo "To take yo don't have root super priveliges access"
-    exit 1
-else
-    echo "i have super priveliges access"
+   echo "Please run the script with root privelliges"
+   exit 1
 fi
-dnf install git -y
+dnf list installed git
+if [ $? -ne 0 ]
+then
+   echo "git is not installed, going to install it ....."
+   dnf install git -y
+else
+   echo "Git is already installed, nothing to do......."
+fi
