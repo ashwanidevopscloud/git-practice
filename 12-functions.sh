@@ -14,7 +14,7 @@ VALIDATE(){
 if [ $uSERID -ne 0 ]
 then
     echo "you don't have root super privelliages"
-    exit
+    exit 1
 else
     echo "I have root access.... i will procide with that....."
 fi
@@ -37,7 +37,6 @@ then
     echo "mysql is not installed.... going to install it"
     dnf install mysql -y
     VALIDATE $? "installing mysql"
-    
 else
     echo "mysql is aleady installed.... nothing tod do"
 fi
