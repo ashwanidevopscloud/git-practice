@@ -6,10 +6,10 @@ uSERID=$(id -u)
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-       echo -e "$2 is $R failed....check with that $N"
+       echo -e "$2 is $R FAILED....check with that $N"
        exit 1
     else
-       echo "$2 is $G sccess...... completed $N"
+       echo "$2 is $G SUCCESS...... completed $N"
     fi
 }
 CHECK_ROOT(){
