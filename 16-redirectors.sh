@@ -14,19 +14,19 @@ uSERID=$(id -u)
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-       echo -e "$2 is $R FAILED....check with that $N" | tee -a >>$LOG_FILE
+       echo -e "$2 is $R FAILED....check with that $N" | tee -a $LOG_FILE
        exit 1
     else
-       echo -e "$2 is $G SUCCESS...... completed $N"  | tee -a >>$LOG_FILE
+       echo -e "$2 is $G SUCCESS...... completed $N"  | tee -a $LOG_FILE
     fi
 }
 CHECK_ROOT(){
     if [ $uSERID -ne 0 ] 
     then
-        echo -e "$R user has not super root privelliages access is not there..... $N"  | tee -a >>$LOG_FILE
+        echo -e "$R user has not super root privelliages access is not there..... $N"  | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$G user has root access is there... continue with that.....$N"  | tee -a >>$LOG_FILE
+        echo -e "$G user has root access is there... continue with that.....$N"  | tee -a $LOG_FILE
     fi
 }
 uSAGE(){
@@ -35,7 +35,7 @@ uSAGE(){
       
 }
 
-echo  -e "$Y script started a execting at $N: $(date)"  | tee -a >>$LOG_FILE
+echo  -e "$Y script started a execting at $N: $(date)"  | tee -a $LOG_FILE
 CHECK_ROOT
 
 if [ $# -eq 0 ]
@@ -49,11 +49,11 @@ do
 
   if [ $? -ne 0 ]
   then
-       echo -e "$R $package is not installed.... going to install it......$N"  | tee -a >>$LOG_FILE
+       echo -e "$R $package is not installed.... going to install it......$N"  | tee -a $LOG_FILE
        dnf install $package -y  &>>$LOG_FILE
        VALIDATE $? "$package installing......"  | tee -a >>$LOG_FILE
     
    else
-       echo -e "$Y $package is already installed nothing to do $N"  | tee -a >>$LOG_FILE
+       echo -e "$Y $package is already installed nothing to do $N"  | tee -a $LOG_FILE
    fi
 done
