@@ -1,6 +1,15 @@
 #!/bin/bash
 
 uSERID=$(id -u)
+CHECK_ROOT(){
+    if [ $uSERID -ne 0 ]
+    then
+        echo "you don't have root super privelliages"
+        exit 1
+    else
+        echo "I have root access.... i will procide with that....."
+    fi
+}
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -11,15 +20,7 @@ VALIDATE(){
         echo "$2 is ..... SCESSS"
     fi
 }
-if [ $uSERID -ne 0 ]
-then
-    echo "you don't have root super privelliages"
-    exit 1
-else
-    echo "I have root access.... i will procide with that....."
-fi
-
-
+CHECK_ROOT
 dnf list installed git
 
 if [ $? -ne 0 ]
