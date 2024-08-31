@@ -8,7 +8,7 @@ then
    echo "Please run the script with root privelliges"
    exit 1
 fi
-dnf list installed git
+dnf list installed gittttttttttt
 if [ $? -ne 0 ]
 then
    echo "git is not installed, going to install it ....."
