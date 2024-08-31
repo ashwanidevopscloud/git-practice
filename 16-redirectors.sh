@@ -34,7 +34,7 @@ uSAGE(){
     exit 1
       
 }
-echo "script started a execting at:$date"
+echo "script started a execting at:$(date)"
 
 CHECK_ROOT
 
