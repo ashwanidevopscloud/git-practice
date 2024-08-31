@@ -41,6 +41,6 @@ do
        VALIDATE $? "$package installing......"  &>>$LOG-FILE
     
    else
-       echo "$package is aleady installed nothing to do"  &>>$LOG-FILE
+       echo "$package is already installed nothing to do"  &>>$LOG-FILE
    fi
 done
