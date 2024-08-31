@@ -8,7 +8,9 @@ mkdir -p $LOGS_FOLDER
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 uSERID=$(id -u)
+
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
@@ -27,8 +29,18 @@ CHECK_ROOT(){
         echo -e "$G user has root access is there... continue with that.....$N"  &>>$LOG_FILE
     fi
 }
+uSAGE(){
+    echo -e " $R uSAGE:: $N sudo sh 16-redirectors.sh package1 package2..."
+    exit 1
+      
+}
 
 CHECK_ROOT
+
+if [ $# -eq 0 ]
+then
+   uSAGE
+fi 
 
 for package in $@
 do
@@ -41,6 +53,6 @@ do
        VALIDATE $? "$package installing......"  &>>$LOG_FILE
     
    else
-       echo "$package is already installed nothing to do"  &>>$LOG_FILE
+       echo -e "$Y $package is already installed nothing to do $N"  &>>$LOG_FILE
    fi
 done
