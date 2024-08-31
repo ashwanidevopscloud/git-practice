@@ -26,7 +26,7 @@ CHECK_ROOT
 
 for package in $@
 do
-  dnf list installed git
+  dnf list installed $package
 
   if [ $? -ne 0 ]
   then
