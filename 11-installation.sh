@@ -3,7 +3,7 @@
 uSERID=$(id -u)
 echo "userID is ::$uSERID"
 
-if[ $uSERID -ne 0]
+if[ $uSERID -ne 0 ]
 then
    echo "Please run the script with root privelliges"
    exit 1
