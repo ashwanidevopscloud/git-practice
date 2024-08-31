@@ -1,6 +1,6 @@
 #!/bin/bash
 
-uSERID = $(id -u)
+uSERID=$(id -u)
 if [ $uSERID -ne 0 ]
 then
     echo "you don't have root super privelliages"
