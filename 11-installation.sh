@@ -19,6 +19,7 @@ then
       exit 1
     else
       echo "Git installation is scesss....."
+    fi
 else
    echo "Git is already installed, nothing to do......."
 fi
